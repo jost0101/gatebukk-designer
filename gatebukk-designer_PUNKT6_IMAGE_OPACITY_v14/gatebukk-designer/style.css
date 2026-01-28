@@ -1,0 +1,959 @@
+/* style.css */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Montserrat:wght@400;600&display=swap");
+
+/* ======================================================
+   [CSS:ROOT] DESIGN TOKENS
+====================================================== */
+:root {
+  --accent-start: #4fa9ff;
+  --accent-end: #6edccf;
+
+  --accent-hover-start: #6bb9ff;
+  --accent-hover-end: #7fe5d8;
+
+  --accent-pressed-start: #3f8fe0;
+  --accent-pressed-end: #5bc9bc;
+
+  --accent-outline: rgba(79, 169, 255, 0.35);
+
+  --btn-bg: #ffffff;
+  --btn-bg-soft: rgba(79, 169, 255, 0.06);
+  --btn-border: rgba(79, 169, 255, 0.45);
+  --btn-text: #0f172a;
+
+  --btn-font: Poppins, system-ui, sans-serif;
+  --btn-font-size: 14px;
+  --btn-font-weight: 500;
+
+  --btn-disabled-bg: #f1f5f9;
+  --btn-disabled-text: #94a3b8;
+  --btn-disabled-border: #e5e7eb;
+
+  --section-bg: rgba(79, 169, 255, 0.05);
+  --section-bg-hover: rgba(79, 169, 255, 0.08);
+  --section-border: rgba(79, 169, 255, 0.25);
+  --section-text: #0f172a;
+
+  --select-bg: #ffffff;
+  --select-border: rgba(79, 169, 255, 0.35);
+  --select-text: #0f172a;
+
+  --toggle-off-bg: #e5e7eb;
+  --toggle-on-start: #6edccf;
+  --toggle-on-end: #5bc9bc;
+
+  --icon-size: 22px;
+  --icon-gap: 8px;
+}
+
+/* ======================================================
+   [CSS:BASE]
+====================================================== */
+body {
+  margin: 0;
+  font-family: Poppins, system-ui, sans-serif;
+  background: #f3f4f6;
+}
+
+/* ======================================================
+   [CSS:LAYOUT]
+====================================================== */
+.wix-root {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 12px;
+  box-sizing: border-box;
+}
+
+/* ======================================================
+   [CSS:PREVIEW]
+====================================================== */
+
+.design-area {
+  width: 260px;
+  height: 380px;
+  border: 4px dashed rgba(239, 68, 68, 0.7);
+  position: relative;
+  background: #ffffff;
+}
+
+
+
+
+
+.center {
+  justify-content: center;
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.split {
+  display: flex;
+  gap: 10px;
+}
+
+/* ======================================================
+   [CSS:SECTIONS]
+====================================================== */
+.section-title {
+  background: linear-gradient(
+    135deg,
+    rgba(79, 169, 255, 0.06),
+    rgba(110, 220, 207, 0.06)
+  );
+  color: var(--section-text);
+  border: 1px solid var(--section-border);
+  padding: 12px 14px;
+  border-radius: 14px;
+  cursor: pointer;
+  display: grid;
+  grid-template-columns: 30px 1fr 18px;
+  align-items: center;
+  gap: 10px;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.1s ease;
+}
+
+.section-title:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(79, 169, 255, 0.10),
+    rgba(110, 220, 207, 0.10)
+  );
+  transform: translateY(-1px);
+}
+
+
+
+
+/* ======================================================
+   [CSS:BUTTONS]
+====================================================== */
+button,
+.upload-label {
+  background: var(--btn-bg-soft);
+  color: var(--btn-text);
+  border: 1px solid var(--btn-border);
+  font-family: var(--btn-font);
+  font-size: var(--btn-font-size);
+  font-weight: var(--btn-font-weight);
+  border-radius: 14px;
+  padding: 12px 16px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  gap: var(--icon-gap);
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.15s ease,
+    transform 0.08s ease;
+}
+
+
+
+
+
+
+button:active {
+  background: linear-gradient(
+    135deg,
+    var(--accent-pressed-start),
+    var(--accent-pressed-end)
+  );
+  transform: scale(0.97);
+}
+
+.upload-label:active {
+  background: linear-gradient(
+    135deg,
+    rgba(79, 169, 255, 0.16),
+    rgba(110, 220, 207, 0.16)
+  );
+  transform: scale(0.99);
+}
+
+
+
+
+button.disabled .icon,
+button:disabled .icon {
+  opacity: 0.55;
+}
+
+/* --- UX: full width primary text action --- */
+#addText {
+  width: 100%;
+}
+
+/* ======================================================
+   [CSS:SIDE BUTTONS]
+====================================================== */
+#side1,
+#side2 {
+  background: linear-gradient(
+    135deg,
+    rgba(79, 169, 255, 0.06),
+    rgba(110, 220, 207, 0.06)
+  );
+  border: 1px solid var(--btn-border);
+  border-radius: 14px;
+  padding: 10px 18px;
+  font-family: var(--btn-font);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--btn-text);
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.08s ease,
+    box-shadow 0.15s ease;
+}
+
+#side1:active,
+#side2:active {
+  transform: scale(0.98);
+  box-shadow: 0 0 0 2px rgba(79, 169, 255, 0.18) inset;
+}
+
+#side1.active,
+#side2.active {
+  background: linear-gradient(
+    135deg,
+    var(--accent-start),
+    var(--accent-end)
+  );
+  color: #ffffff;
+  border-color: transparent;
+  box-shadow: none;
+}
+
+
+/* ======================================================
+   [CSS:TEXT ALIGN]
+====================================================== */
+.text-align-group {
+  background: transparent;
+  border-radius: 14px;
+  padding: 0;
+  margin-top: 18px;
+  margin-bottom: 24px;
+}
+
+.text-align-label {
+  background: linear-gradient(
+    135deg,
+    rgba(79, 169, 255, 0.05),
+    rgba(110, 220, 207, 0.05)
+  );
+  border: 1px solid rgba(79, 169, 255, 0.25);
+  border-radius: 16px;
+  padding: 12px 12px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: var(--btn-font-weight);
+  font-family: var(--btn-font);
+  color: var(--btn-text);
+  margin-bottom: 14px;
+  opacity: 1;
+}
+
+
+
+
+
+
+
+
+/* ======================================================
+   [CSS:TOGGLE]
+====================================================== */
+.same-toggle {
+  background: linear-gradient(
+    135deg,
+    rgba(79, 169, 255, 0.05),
+    rgba(110, 220, 207, 0.05)
+  );
+  border: 1px solid rgba(79, 169, 255, 0.25);
+  border-radius: 16px;
+  padding: 10px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--btn-font);
+  font-size: var(--btn-font-size);
+  font-weight: var(--btn-font-weight);
+  color: var(--btn-text);
+}
+
+.same-toggle input {
+  appearance: none;
+  width: 44px;
+  height: 26px;
+  background: rgba(15, 23, 42, 0.10);
+  border-radius: 999px;
+  position: relative;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.same-toggle input::after {
+  content: "";
+  width: 20px;
+  height: 20px;
+  background: #ffffff;
+  border-radius: 50%;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  transition: transform 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
+
+
+.same-toggle input:checked::after {
+  transform: translateX(18px);
+}
+
+
+button:hover .icon svg,
+.section-title:hover .icon svg {
+  transform: scale(1.05);
+}
+
+/* === IMG SVG (LEGACY / TRANSITION SYSTEM) === */
+.icon img {
+  width: var(--icon-size);
+  height: var(--icon-size);
+  display: block;
+  filter: var(--icon-filter-base);
+}
+
+/* Hover -> blå */
+button:hover .icon img,
+.upload-label:hover .icon img,
+.section-title:hover .icon img {
+  filter: var(--icon-filter-hover);
+}
+
+/* Active/open -> grønn */
+button.active .icon img,
+.section-title.open .icon img {
+  filter: var(--icon-filter-active);
+}
+
+/* Disabled -> dempet */
+button.disabled .icon img,
+#side2.disabled .icon img {
+  filter: var(--icon-filter-disabled);
+}
+
+
+/* ======================================================
+   [CSS:ICONS] ICON STATE CONTROL
+====================================================== */
+.icon {
+  color: currentColor;
+  opacity: 1;
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+button.disabled .icon,
+button:disabled .icon {
+  opacity: 0.6;
+}
+
+
+
+
+/* ======================================================
+   [CSS:COLOR BUTTONS]
+====================================================== */
+.color-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+
+  padding: 14px 16px;
+  min-height: 52px;
+
+  position: relative;
+  overflow: hidden;
+
+  margin-top: 16px;
+  margin-bottom: 20px;
+}
+
+/* Default state: color wheel */
+.color-btn .swatch {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: conic-gradient(
+    red,
+    yellow,
+    lime,
+    cyan,
+    blue,
+    magenta,
+    red
+  );
+  border: 1px solid rgba(0,0,0,0.25);
+  flex-shrink: 0;
+}
+
+
+
+/* Disabled state */
+.color-btn.disabled {
+  opacity: 0.45;
+}
+
+
+/* ================= TOOLBAR ================= */
+
+#popup [data-popup-toolbar] {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 8px;
+
+  white-space: normal;
+}
+
+/* Rows inside toolbar */
+#popup [data-popup-toolbar] > [data-popup-row] {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 6px;
+
+  flex-shrink: 0;
+
+  width: fit-content;
+  max-width: 100%;
+  align-self: center;
+
+  /* ⬇️ NYTT: rad-plate */
+  padding: 5px 6px;
+  background: rgba(241, 245, 249, 0.6);
+  border-radius: 10px;
+}
+
+/* Top-raden (font) skal fortsatt bruke full bredde */
+#popup [data-popup-toolbar] > [data-popup-row="top"] {
+  width: 100%;
+  align-self: stretch;
+}
+
+#popup [data-popup-toolbar] > [data-popup-row="style-expand"] {
+  display: none;
+}
+
+#popup [data-popup-toolbar] > [data-popup-row="style-expand"][data-open="true"] {
+  display: inline-flex;
+}
+
+/* --- VISUELL STABLING (VERTIKAL) --- */
+/* Kun vertikal rytme – ingen hard separators */
+#popup [data-popup-toolbar] > [data-popup-row]:not(:last-child) {
+  margin-bottom: 2px;
+}
+
+/* --- VISUELL STABLING (VERTIKAL) --- */
+#popup [data-popup-toolbar] > [data-popup-row]:not(:last-child) {
+  margin-bottom: 2px;
+}
+
+/* ================= PANEL ================= */
+
+#popup [data-popup-panel] {
+  display: none;
+  margin-top: 8px;
+
+  padding: 7px;
+
+  background: rgba(241, 245, 249, 0.97);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 12px;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.6),
+    0 6px 18px rgba(15, 23, 42, 0.12);
+
+  transform-origin: top center;
+}
+
+#popup [data-popup-panel][data-open="true"] {
+  display: block;
+}
+
+
+/* Hover / hover-equivalent */
+#popup [data-popup-control]:hover {
+  background: rgba(226, 232, 240, 1);
+  border-color: rgba(15, 23, 42, 0.18);
+}
+
+/* Press feedback (iOS-style) */
+#popup [data-popup-control]:active {
+  transform: translateY(0.5px);
+}
+
+/* Active / toggled state */
+#popup [data-popup-control][data-active="true"] {
+  background: linear-gradient(
+    180deg,
+    rgba(96, 165, 250, 1),
+    rgba(59, 130, 246, 1)
+  );
+  border-color: rgba(37, 99, 235, 1);
+  color: #ffffff;
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.35),
+    0 4px 10px rgba(59,130,246,0.35);
+}
+
+
+/* Delete (danger) */
+#popup [data-popup-control="delete"] {
+  background: rgba(254, 226, 226, 0.75);
+  border-color: rgba(220, 38, 38, 0.25);
+  color: rgba(153, 27, 27, 1);
+}
+#popup [data-popup-control="delete"]:hover {
+  background: rgba(254, 202, 202, 0.9);
+  border-color: rgba(220, 38, 38, 0.35);
+}
+
+/* Image opacity slider */
+#popup [data-popup-control="opacity"] {
+  padding: 0 10px;
+  gap: 10px;
+  min-width: 150px;
+}
+#popup [data-popup-image-opacity] {
+  width: 120px;
+}
+/* ================= CONTROL SEMANTICS ================= */
+
+/* Font-knapp: primær / modus */
+#popup [data-popup-control="font"] {
+  min-width: 88px;
+  width: 100%;
+  flex: 1;
+  justify-content: flex-start;
+  gap: 10px;
+  padding: 0 12px;
+  font-weight: 600;
+}
+
+#popup [data-popup-control="style-toggle"] {
+  min-width: 62px;
+  padding: 0 10px;
+  font-weight: 700;
+}
+
+#popup [data-popup-control="font"] [data-popup-font-chip] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 52px;
+  padding: 5px 9px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.06);
+  border: 1px solid rgba(15, 23, 42, 0.10);
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 1;
+}
+
+#popup [data-popup-control="font"] [data-popup-font-label] {
+  font-weight: 600;
+  font-size: 13px;
+  opacity: 0.9;
+}
+
+/* Alignment: presise, mekaniske */
+#popup [data-popup-control^="align-"] {
+  width: 34px;
+  min-width: 34px;
+  padding: 0;
+}
+
+#popup [data-popup-control="bring-forward"],
+#popup [data-popup-control="send-backward"] {
+  width: 34px;
+  min-width: 34px;
+  padding: 0;
+}
+
+/* Text-style toggles: lette */
+#popup [data-popup-control="bold"],
+#popup [data-popup-control="italic"],
+#popup [data-popup-control="underline"],
+#popup [data-popup-control="strike"] {
+  min-width: 34px;
+  padding: 0 6px;
+  font-weight: 600;
+}
+
+/* ---------- ICON GLYPHS ---------- */
+
+#popup [data-popup-control]::before {
+  display: inline-block;
+  font-size: 13px;
+  line-height: 1;
+  opacity: 0.85;
+}
+
+#popup [data-popup-control="style-toggle"]::before {
+  content: "";
+}
+
+/* Text styles */
+#popup [data-popup-control="bold"]::before { content: "B"; }
+
+#popup [data-popup-control="italic"]::before { content: "I"; font-style: italic; }
+
+#popup [data-popup-control="underline"]::before { content: "U"; text-decoration: underline; }
+
+#popup [data-popup-control="strike"]::before { content: "S"; text-decoration: line-through; }
+
+
+
+
+/* Font */
+#popup [data-popup-control="font"]::before {
+  content: "";
+}
+
+/* Alignment */
+#popup [data-popup-control^="align-"]::before {
+  content: "≡";
+  font-size: 14px;
+}
+
+#popup [data-popup-control="bring-forward"]::before {
+  content: "↑";
+  font-size: 16px;
+}
+
+#popup [data-popup-control="send-backward"]::before {
+  content: "↓";
+  font-size: 16px;
+}
+
+#popup [data-popup-control="align-left"]::before { content: "≡"; }
+
+#popup [data-popup-control="align-center"]::before { content: "≣"; }
+
+#popup [data-popup-control="align-right"]::before { content: "≡"; }
+
+/* ---------- STATES ---------- */
+
+#popup [data-popup-control]:hover {
+  background: rgba(226, 232, 240, 1);
+  border-color: rgba(15, 23, 42, 0.14);
+}
+
+/* Press feedback (iOS-like) */
+#popup [data-popup-control]:active {
+  transform: translateY(0.5px);
+}
+
+/* Active state = clear semantic signal */
+#popup [data-popup-control][data-active="true"] {
+  background: linear-gradient(
+    180deg,
+    rgba(96, 165, 250, 1),
+    rgba(59, 130, 246, 1)
+  );
+  border-color: rgba(37, 99, 235, 1);
+  color: #ffffff;
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.35);
+}
+
+#popup [data-popup-control][data-active="true"]::before {
+  opacity: 1;
+}
+
+
+/* Når font-panel er åpent */
+#popup [data-popup-control="font"][data-active="true"] {
+  background: linear-gradient(
+    180deg,
+    rgba(96, 165, 250, 1),
+    rgba(59, 130, 246, 1)
+  );
+  border-color: rgba(37, 99, 235, 1);
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.35),
+    0 4px 10px rgba(59,130,246,0.35);
+}
+
+#popup [data-popup-control="font"][data-active="true"]::after {
+  background: rgba(255,255,255,0.85);
+  opacity: 1;
+}
+
+/* ================= FONT PANEL ================= */
+
+#popup [data-popup-group="font-list"] {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+
+#popup [data-popup-control="font-item"]::after {
+  content: "Aa";
+  font-size: 11px;
+  opacity: 0.35;
+  margin-left: 12px;
+}
+
+#popup [data-popup-control="font-item"]:hover {
+  background: rgba(226, 232, 240, 1);
+  transform: translateX(1px);
+}
+
+/* ================= ACTIVE FONT ================= */
+
+#popup
+  [data-popup-control="font-item"][data-active="true"] {
+  background: linear-gradient(
+    180deg,
+    rgba(96, 165, 250, 1),
+    rgba(59, 130, 246, 1)
+  );
+  border-color: rgba(37, 99, 235, 1);
+  color: #ffffff;
+  font-weight: 600;
+}
+
+#popup
+  [data-popup-control="font-item"][data-active="true"]::after {
+  content: "Aktiv";
+  font-size: 11px;
+  opacity: 0.9;
+}
+
+  justify-content: center;
+  min-width: 52px;
+  padding: 5px 9px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.06);
+  border: 1px solid rgba(15, 23, 42, 0.10);
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 1;
+}
+
+#popup [data-popup-control="font"] [data-popup-font-label] {
+  font-weight: 600;
+  font-size: 13px;
+  opacity: 0.9;
+}
+
+/* Alignment: presise, mekaniske */
+#popup [data-popup-control^="align-"] {
+  width: 34px;
+  min-width: 34px;
+  padding: 0;
+}
+
+#popup [data-popup-control="bring-forward"],
+#popup [data-popup-control="send-backward"] {
+  width: 34px;
+  min-width: 34px;
+  padding: 0;
+}
+
+/* Text-style toggles: lette */
+#popup [data-popup-control="bold"],
+#popup [data-popup-control="italic"],
+#popup [data-popup-control="underline"],
+#popup [data-popup-control="strike"] {
+  min-width: 34px;
+  padding: 0 6px;
+  font-weight: 600;
+}
+
+
+#popup [data-popup-control="font-dec"],
+#popup [data-popup-control="font-inc"] {
+  width: 34px;
+  min-width: 34px;
+  padding: 0;
+}
+
+#popup [data-popup-control="font-size"] {
+  min-width: 46px;
+  padding: 0 10px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+
+
+/* ---------- ICON GLYPHS ---------- */
+
+#popup [data-popup-control]::before {
+  display: inline-block;
+  font-size: 13px;
+  line-height: 1;
+  opacity: 0.85;
+}
+
+#popup [data-popup-control="style-toggle"]::before {
+  content: "";
+}
+
+/* Text styles */
+#popup [data-popup-control="bold"]::before { content: "B"; }
+
+#popup [data-popup-control="italic"]::before { content: "I"; font-style: italic; }
+
+#popup [data-popup-control="underline"]::before { content: "U"; text-decoration: underline; }
+
+#popup [data-popup-control="strike"]::before { content: "S"; text-decoration: line-through; }
+
+
+#popup [data-popup-control="font-dec"]::before { content: "−"; font-size: 18px; }
+
+#popup [data-popup-control="font-inc"]::before { content: "+"; font-size: 18px; }
+
+#popup [data-popup-control="font-size"]::before { content: ""; display: none; }
+
+
+/* Font */
+#popup [data-popup-control="font"]::before {
+  content: "";
+}
+
+/* Alignment */
+#popup [data-popup-control^="align-"]::before {
+  content: "≡";
+  font-size: 14px;
+}
+
+#popup [data-popup-control="bring-forward"]::before {
+  content: "↑";
+  font-size: 16px;
+}
+
+#popup [data-popup-control="send-backward"]::before {
+  content: "↓";
+  font-size: 16px;
+}
+
+#popup [data-popup-control="align-left"]::before { content: "≡"; }
+
+#popup [data-popup-control="align-center"]::before { content: "≣"; }
+
+#popup [data-popup-control="align-right"]::before { content: "≡"; }
+
+#popup [data-popup-control="align-justify"]::before { content: "☰"; font-size: 14px; }
+
+/* ---------- STATES ---------- */
+
+#popup [data-popup-control]:hover {
+  background: rgba(226, 232, 240, 1);
+  border-color: rgba(15, 23, 42, 0.14);
+}
+
+/* Press feedback (iOS-like) */
+#popup [data-popup-control]:active {
+  transform: translateY(0.5px);
+}
+
+/* Active state = clear semantic signal */
+#popup [data-popup-control][data-active="true"] {
+  background: linear-gradient(
+    180deg,
+    rgba(96, 165, 250, 1),
+    rgba(59, 130, 246, 1)
+  );
+  border-color: rgba(37, 99, 235, 1);
+  color: #ffffff;
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.35);
+}
+
+#popup [data-popup-control][data-active="true"]::before {
+  opacity: 1;
+}
+
+
+/* Når font-panel er åpent */
+#popup [data-popup-control="font"][data-active="true"] {
+  background: linear-gradient(
+    180deg,
+    rgba(96, 165, 250, 1),
+    rgba(59, 130, 246, 1)
+  );
+  border-color: rgba(37, 99, 235, 1);
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.35),
+    0 4px 10px rgba(59,130,246,0.35);
+}
+
+#popup [data-popup-control="font"][data-active="true"]::after {
+  background: rgba(255,255,255,0.85);
+  opacity: 1;
+}
+
+/* ================= FONT PANEL ================= */
+
+#popup [data-popup-group="font-list"] {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+
+#popup [data-popup-control="font-item"]::after {
+  content: "Aa";
+  font-size: 11px;
+  opacity: 0.35;
+  margin-left: 12px;
+}
+
+#popup [data-popup-control="font-item"]:hover {
+  background: rgba(226, 232, 240, 1);
+  transform: translateX(1px);
+}
+
+/* ================= ACTIVE FONT ================= */
+
+#popup
+  [data-popup-control="font-item"][data-active="true"] {
+  background: linear-gradient(
+    180deg,
+    rgba(96, 165, 250, 1),
+    rgba(59, 130, 246, 1)
+  );
+  border-color: rgba(37, 99, 235, 1);
+  color: #ffffff;
+  font-weight: 600;
+}
+
+#popup
+  [data-popup-control="font-item"][data-active="true"]::after {
+  content: "Aktiv";
+  font-size: 11px;
+  opacity: 0.9;
+}

@@ -1,0 +1,6 @@
+LOGIKK- OG EIERSKAPSDOKUMENT (v1.4)
+
+Endring fra v1.3:
+- Image opacity implementert som helper (image-tools.js)
+- ui-sync.js eier wiring
+- Ingen crop, ingen side-effects i helper

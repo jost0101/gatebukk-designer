@@ -1,0 +1,13 @@
+/* layout.css – layout only */
+
+
+/* ===== PUNKT 4A – SIKRE LAYOUT-REGLER ===== */
+
+
+.app {
+  width: 100%;
+  max-width: 360px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}

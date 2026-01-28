@@ -1,0 +1,259 @@
+/* ui.css – UI visuals only */
+
+
+/* ===== PUNKT 4C – SIKRE UI-REGLER ===== */
+
+/* ======================================================
+   [CSS:MENU]
+====================================================== */
+.menu {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-bottom: 16px;
+}
+
+
+.row {
+  display: flex;
+  gap: 10px;
+}
+
+
+.section-title.open {
+  background: linear-gradient(
+    135deg,
+    rgba(79, 169, 255, 0.18),
+    rgba(110, 220, 207, 0.18)
+  );
+  border-color: rgba(79, 169, 255, 0.45);
+}
+
+
+.section-body {
+  display: none;
+  padding-top: 12px;
+}
+
+
+.section-body.open {
+  display: block;
+}
+
+
+.upload-label {
+  width: 100%;
+  box-sizing: border-box;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.upload-label input {
+  display: none;
+}
+
+
+.upload-label .label-text {
+  line-height: 1.1;
+}
+
+
+button:hover {
+  background: linear-gradient(
+    135deg,
+    var(--accent-hover-start),
+    var(--accent-hover-end)
+  );
+  color: #ffffff;
+  border-color: transparent;
+}
+
+
+.upload-label:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(79, 169, 255, 0.10),
+    rgba(110, 220, 207, 0.10)
+  );
+  color: var(--btn-text);
+  border-color: rgba(79, 169, 255, 0.40);
+}
+
+
+button:focus-visible,
+.upload-label:focus-visible {
+  outline: 2px solid var(--accent-outline);
+  outline-offset: 2px;
+}
+
+
+button.active {
+  background: linear-gradient(
+    135deg,
+    var(--accent-start),
+    var(--accent-end)
+  );
+  color: #ffffff;
+  border-color: transparent;
+}
+
+
+button.disabled,
+button:disabled {
+  background: var(--btn-disabled-bg);
+  color: var(--btn-disabled-text);
+  border-color: var(--btn-disabled-border);
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+
+.icon-row {
+  display: flex;
+  gap: 10px;
+}
+
+
+.icon-row button {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  min-height: 44px;
+  width: 100%;
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+
+.icon-row button .icon {
+  color: #6b7280;
+}
+
+
+.icon-row button:hover {
+  border-color: rgba(79, 169, 255, 0.55);
+}
+
+
+.icon-row button.active {
+  background: rgba(79, 169, 255, 0.10);
+  border-color: rgba(79, 169, 255, 0.85);
+}
+
+
+.icon-row button.active .icon {
+  color: rgba(79, 169, 255, 1);
+}
+
+
+.icon-row button:focus-visible {
+  outline: 2px solid var(--accent-outline);
+  outline-offset: 2px;
+}
+
+
+.same-toggle input:checked {
+  background: linear-gradient(
+    135deg,
+    var(--toggle-on-start),
+    var(--toggle-on-end)
+  );
+}
+
+
+.same-toggle input:focus-visible {
+  outline: 2px solid var(--accent-outline);
+  outline-offset: 2px;
+}
+
+
+/* ======================================================
+   [CSS:SELECT]
+====================================================== */
+select {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 14px;
+  border: 1px solid var(--select-border);
+  font-size: 14px;
+  background: linear-gradient(
+    135deg,
+    rgba(79, 169, 255, 0.04),
+    rgba(110, 220, 207, 0.04)
+  );
+  color: var(--select-text);
+  appearance: none;
+  font-family: var(--btn-font);
+}
+
+
+select + select {
+  margin-top: 14px;
+}
+
+
+select:focus {
+  outline: none;
+}
+
+
+select:focus-visible {
+  outline: 2px solid var(--accent-outline);
+  outline-offset: 2px;
+  border-color: rgba(79, 169, 255, 0.55);
+}
+
+
+/* ======================================================
+   [CSS:ICONS] IMG SVG SUPPORT
+====================================================== */
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: var(--icon-size);
+  min-height: var(--icon-size);
+
+  flex: 0 0 auto;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+
+/* ======================================================
+   [CSS:ICONS] ICON COLOR FIX
+====================================================== */
+.icon {
+  color: currentColor;
+  display: inline-flex;
+  align-items: center;
+}
+
+
+button:hover:not(.disabled) .icon,
+.section-title:hover .icon {
+  color: currentColor;
+}
+
+
+/* ======================================================
+   [CSS:ICONS] ICON SIZES
+====================================================== */
+.icon.md {
+  width: 24px;
+  height: 24px;
+}
+
+
+.icon.sm {
+  width: 18px;
+  height: 18px;
+}
+
